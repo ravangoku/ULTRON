@@ -1,0 +1,19 @@
+services:
+  api:
+    build: ./backend
+    env_file: .env
+    ports: ["8000:8000"]
+    depends_on: [postgres, redis]
+  web:
+    build: ./frontend
+    ports: ["5173:80"]
+    depends_on: [api]
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment: {POSTGRES_DB: ultron, POSTGRES_USER: ultron, POSTGRES_PASSWORD: ultron}
+    ports: ["5432:5432"]
+    volumes: ["postgres_data:/var/lib/postgresql/data", "./infra/postgres/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro"]
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+volumes: {postgres_data: {}}
