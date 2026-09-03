@@ -1,0 +1,3 @@
+# Security model
+
+Treat every document, webpage, and model output as untrusted. Tool calls are allowlisted, audited, risk-labelled, confirmation-aware, and blocked by emergency stop. Memory storage is opt-in. Do not enable arbitrary shell, filesystem, browser, credential, or desktop automation without a separately reviewed sandbox, per-user authorization, previews, and audit persistence. Production deployments must add authentication/authorization, CSRF strategy where cookies are used, secure transport, rate limits, secret manager integration, SSRF/path traversal defenses, background-job isolation, and structured redacted logs.
