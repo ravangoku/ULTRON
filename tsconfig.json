@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./frontend" }
+  ],
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "strict": true
+  }
+}
